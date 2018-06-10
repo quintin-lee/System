@@ -1,0 +1,3 @@
+valgrind --tool=memcheck --leak-check=full --log-file=list.log ./list_demo
+valgrind --tool=memcheck --leak-check=full --log-file=queue.log ./queue_demo
+valgrind --tool=memcheck --leak-check=full --log-file=stack.log ./stack_demo
