@@ -26,16 +26,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include <malloc.h>
-#include "list.h"
-#include "stack.h"
+#include "../include/list.h"
+#include "../include/stack.h"
 
 /**
  * @brief  堆栈数据结构
  */
 struct stack_type {
-    unsigned int cnt;    // 堆栈数据计数
-    void *data;          // 堆栈中的数据
-    list_link item;      // 堆栈链表指针
+    unsigned int cnt;    /**< 堆栈数据计数 */
+    void *data;          /**< 堆栈中的数据 */
+    list_link item;      /**< 堆栈链表指针 */
 };
 
 /**

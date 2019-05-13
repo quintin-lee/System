@@ -26,16 +26,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include <malloc.h>
-#include "list.h"
-#include "queue.h"
+#include "../include/list.h"
+#include "../include/queue.h"
 
 /**
  * @brief 队列数据结构
  */
 struct queue_type {
-    unsigned int cnt; // 队列数据计数,方便计算队列长度
-    void *data;       // 队列数据
-    list_link item;   // 队列节点
+    unsigned int cnt; /**< 队列数据计数,方便计算队列长度 */
+    void *data;       /**< 队列数据 */
+    list_link item;   /**< 队列节点 */
 };
 
 /**
@@ -131,7 +131,7 @@ int queue_dequeue(struct queue_type* s, void* dat, int len)
     memset(s->data, 0, len);
 
     /* 将后面的数据前移 */
-    plist_link li = NULL;
+    /* plist_link li = NULL; */
     struct queue_type *temp = list_entry(struct queue_type, item, s->item.r);
 
     if (temp->data && (temp != s)) {

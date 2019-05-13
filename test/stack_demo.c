@@ -24,7 +24,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "stack.h"
+#include "../include/stack.h"
 
 /**
  * @brief 主函数，测试堆栈数据结构功能
@@ -37,6 +37,8 @@
  */
 int main(int argc, char* argv[])
 {
+    (void)argc;
+    (void)argv;
     smart_stack Stack s1 = stack_create();
     smart_stack Stack s2 = stack_create();
     char str[10][100] =

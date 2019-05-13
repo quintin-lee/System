@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "list.h"
+#include "../include/list.h"
 
 typedef struct _tag_test_struct {
     int       a;
@@ -15,10 +15,12 @@ LIST_HEAD(test_list_header);
 
 int main(int argc, char* argv[])
 {
+    (void)argc;
+    (void)argv;
     plist_link li = NULL;
    	plist_link ly = NULL;
    	test_struct *ptests;
-   	test_struct *ptest_seek;
+   	/* test_struct *ptest_seek; */
 
     ptests = (test_struct*)malloc(sizeof(test_struct));
     memset(ptests, 0, sizeof(test_struct));
