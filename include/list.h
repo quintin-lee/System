@@ -15,8 +15,8 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#ifndef __UTILS_LIST_HEADER__
-#define __UTILS_LIST_HEADER__
+#ifndef __LIST_HEADER__
+#define __LIST_HEADER__
 
 #include <stddef.h>
 
@@ -186,78 +186,5 @@ static inline void list_splice_init(plist_link li,
 		ly->r = lt;		\
 	}
 
-/************************************************************************/
-/* ------------------------ sample code --------------------------------
-	typedef struct _tag_test_struct {
-	int a;
-	int b;
-	char buf[1024];
-	list_link item;
-	}test_struct;
-	LIST_HEAD(test_list_header);
-	plist_link li = NULL;
-	plist_link ly = NULL;
-	test_struct *ptests;
-	test_struct *ptest_seek;
-
-	// add first item
-	ptests = (test_struct *)malloc(sizeof(test_struct));
-	memset(ptests , 0 , sizeof(test_struct));
-	ptests->a = 10;
-	ptests->b = 11;
-	_snprintf(ptests->buf , sizeof(ptests->buf) , "%s" , "aaaa aaaa");
-	list_add(&ptests->item , &test_list_header);
-  
-	// add second item
-	ptests = (test_struct *)malloc(sizeof(test_struct));
-	memset(ptests , 0 , sizeof(test_struct));
-	ptests->a = 21;
-	ptests->b = 22;
-	_snprintf(ptests->buf , sizeof(ptests->buf) , "%s" , "bbbb bbbb");
-	list_add(&ptests->item , &test_list_header);
-	ptest_seek = ptests;
-
-	// add third item
-	ptests = (test_struct *)malloc(sizeof(test_struct));
-	memset(ptests , 0 , sizeof(test_struct));
-	ptests->a = 31;
-	ptests->b = 32;
-	_snprintf(ptests->buf , sizeof(ptests->buf) , "%s" , "cccc cccc");
-	list_add(&ptests->item , &test_list_header);
-	ptest_seek = ptests;
-
-	// add forth item
-	ptests = (test_struct *)malloc(sizeof(test_struct));
-	memset(ptests , 0 , sizeof(test_struct));
-	ptests->a = 41;
-	ptests->b = 42;
-	_snprintf(ptests->buf , sizeof(ptests->buf) , "%s" , "ddd dddd");
-	list_add(&ptests->item , &test_list_header);
-
-	// del the second item
-	list_del(&ptest_seek->item);
-	free(ptest_seek);
-
-	// loop for get and display item
-	list_for_each_entry_reverse(ptests , &test_list_header , test_struct , item){
-		fprintf(stderr , "list_for_each_entry_reverse : %d , %s\n" , ptests->a , ptests->buf);
-	}
-	list_for_each(li , &test_list_header){
-		ptests = list_entry( test_struct , item , li);
-		fprintf(stderr , "list_for_each : %d , %s\n" , ptests->a , ptests->buf);
-	}
-
-	//removed list entry
-	list_for_each_safe(li , ly , &test_list_header) {
-		ptests = list_entry( test_struct , item , li);
-		if (ptests) {
-		free(ptests);
-		}
-	}
-
-	// clean list
-	list_empty(&test_list_header);
-	*/
-/************************************************************************/
-#endif	//__UTILS_LIST_HEADER__
+#endif	//__LIST_HEADER__
 
